@@ -21,4 +21,8 @@ public class Loja{
       item.InfoItem();
     }
   }
+  
+  public void Remover(Item item){
+    this.Catalogo.Remove(item);
+  }
 }

@@ -54,7 +54,8 @@ public class Personagem{
             
             if(confcompra == 1){
               this.Saldo = this.Saldo - item.Preco;
-              this.Coletar(item);
+              this.Inventario.Add(item);
+              //loja.Catalogo.Remove(item);
               Console.WriteLine("Compra concluída! \n");
             }
             else
