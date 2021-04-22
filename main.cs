@@ -4,14 +4,6 @@ using System.Collections.Generic;
 class MainClass {
   public static void Main (string[] args) {
 
-    //Personagem
-
-    Personagem paladino = new Personagem();
-
-    //Loja
-
-    Loja Dimitrescu = new Loja("Dimitrescu's", "Província de Dimitrescu");
-
     //Itens
 
     Item ElixirCura = new Item("Elixir de cura", 5, "Poção", "Revigorante. Esta poção cura 15 HP.");
@@ -24,6 +16,28 @@ class MainClass {
     Item EscudoAngelical = new Item("Escudo Angelical", 55, "Escudo", "Como um anjo da guarda, este escudo absorve 50% de qualquerataque inimigo.");
     Item Broquel = new Item("Broquel", 30, "Escudo", "Protege seu usuário, mas pode ser usada para um contra-ataque rápido.");
     Item EscudoCavaleiro = new Item("Escudo do Cavaleiro", 15, "Escudo", "Útil, porém não oferece proteção de qualidade.");
+
+    //Personagem
+
+    Personagem paladino = new Personagem("Paladino", 15);
+    Personagem guarda1 = new Personagem("General Constanze", 75);
+
+    guarda1.Possui(EspadaFerro);
+    guarda1.Possui(ElixirCura);
+
+    //Loja
+
+    Loja Dimitrescu = new Loja("Dimitrescu's", "Província de Dimitrescu");
+    Dimitrescu.AdicionarCat(ElixirCura);
+    Dimitrescu.AdicionarCat(ElixirDano);
+    Dimitrescu.AdicionarCat(EspadaVibora);
+    Dimitrescu.AdicionarCat(EspadaDragao);
+    Dimitrescu.AdicionarCat(ArcoHárpia);
+    Dimitrescu.AdicionarCat(EspadaFerro);
+    Dimitrescu.AdicionarCat(MachadoBehemoth);
+    Dimitrescu.AdicionarCat(EscudoAngelical);
+    Dimitrescu.AdicionarCat(Broquel);
+    Dimitrescu.AdicionarCat(EscudoCavaleiro);
 
     //Início
 
@@ -40,18 +54,42 @@ class MainClass {
 
     Console.WriteLine("*O paladino desperta de seu profundo sono em meio a uma taverna*");
     Console.WriteLine("*Há uma grande confusão ocorrendo ao redor. O que causou isso?*");
+
     Console.ReadKey();
     Console.Clear();
+
     Console.WriteLine("Guarda Real: Ei, você aí! Qual o seu nome?");
 
     Console.Write("Insira o nome do seu personagem: ");
     paladino.Nome = Convert.ToString(Console.ReadLine());
-
-    Console.WriteLine("{0}, né? Então, venha comigo. É você mesmo que estão procurando...", paladino.Nome);
-
-
+    paladino.InfoPersonagem();
 
     Console.ReadKey();
+    Console.Clear();
+
+    Console.WriteLine("{0}: {1}, né? Então, venha comigo. É você mesmo que estão procurando.", guarda1.Nome, paladino.Nome);
+    Console.WriteLine("{0}: Para onde vocês acham que vão me levar? Já não trabalho mais para eles...", paladino.Nome);
+    Console.WriteLine("{0}: Você acha que tem escolha?", guarda1.Nome);
+
+    Console.ReadKey();
+    Console.Clear();
+
+    Console.WriteLine("*Na rua*");
+    Console.WriteLine("{0}: Posso passar na Dimitrescu's bem rápido? Preciso de alguns equipamentos.", paladino.Nome);
+    Console.WriteLine("{0}: Pra quê?", guarda1.Nome);
+    Console.WriteLine("{0}: Nunca se sabe... \n", paladino.Nome);
+    paladino.RoubarDinheiro(guarda1);
+    Console.WriteLine("{0}: Ei! Volte aqui com meu dinheiro agora! Ainda bem que não levou meu elixir...", guarda1.Nome);
+    guarda1.InfoPersonagem();
+
+    Console.ReadKey();
+    Console.Clear();
+
+    Console.WriteLine("*Na loja*");
+
+    paladino.InfoPersonagem();
+    Dimitrescu.CompraLoja();
+    
+
   }
 }
-
