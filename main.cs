@@ -20,7 +20,7 @@ class MainClass {
     //Personagem
 
     Personagem paladino = new Personagem("Paladino", 15);
-    Personagem guarda1 = new Personagem("General Constanze", 75);
+    Personagem guarda1 = new Personagem("General Constanze", 45);
 
     guarda1.Possui(EspadaFerro);
     guarda1.Possui(ElixirCura);
@@ -52,13 +52,13 @@ class MainClass {
     Console.ReadKey();
     Console.Clear();
 
-    Console.WriteLine("*O paladino desperta de seu profundo sono em meio a uma taverna*");
+    Console.WriteLine("*O paladino desperta de seu profundo sono em meio a uma taverna* \n");
     Console.WriteLine("*Há uma grande confusão ocorrendo ao redor. O que causou isso?*");
 
     Console.ReadKey();
     Console.Clear();
 
-    Console.WriteLine("Guarda Real: Ei, você aí! Qual o seu nome?");
+    Console.WriteLine("Guarda Real: Ei, você aí! Qual o seu nome? \n");
 
     Console.Write("Insira o nome do seu personagem: ");
     paladino.Nome = Convert.ToString(Console.ReadLine());
@@ -67,16 +67,16 @@ class MainClass {
     Console.ReadKey();
     Console.Clear();
 
-    Console.WriteLine("{0}: {1}, né? Então, venha comigo. É você mesmo que estão procurando.", guarda1.Nome, paladino.Nome);
-    Console.WriteLine("{0}: Para onde vocês acham que vão me levar? Já não trabalho mais para eles...", paladino.Nome);
+    Console.WriteLine("{0}: {1}, né? Então, venha comigo. É você mesmo que estão procurando. \n", guarda1.Nome, paladino.Nome);
+    Console.WriteLine("{0}: Para onde vocês acham que vão me levar? Já não trabalho mais para eles... \n", paladino.Nome);
     Console.WriteLine("{0}: Você acha que tem escolha?", guarda1.Nome);
 
     Console.ReadKey();
     Console.Clear();
 
-    Console.WriteLine("*Na rua*");
-    Console.WriteLine("{0}: Posso passar na Dimitrescu's bem rápido? Preciso de alguns equipamentos.", paladino.Nome);
-    Console.WriteLine("{0}: Pra quê?", guarda1.Nome);
+    Console.WriteLine("*Na rua* \n");
+    Console.WriteLine("{0}: Posso passar na Dimitrescu's bem rápido? Preciso de alguns equipamentos. \n", paladino.Nome);
+    Console.WriteLine("{0}: Pra quê? \n", guarda1.Nome);
     Console.WriteLine("{0}: Nunca se sabe... \n", paladino.Nome);
     paladino.RoubarDinheiro(guarda1);
     Console.WriteLine("{0}: Ei! Volte aqui com meu dinheiro agora! Ainda bem que não levou meu elixir...", guarda1.Nome);
@@ -85,11 +85,10 @@ class MainClass {
     Console.ReadKey();
     Console.Clear();
 
-    Console.WriteLine("*Na loja*");
+    Console.WriteLine("*Na loja* \n");
 
     paladino.InfoPersonagem();
-    Dimitrescu.CompraLoja();
-    
-
+    paladino.Comprar(Dimitrescu);
+    paladino.InfoPersonagem();
   }
 }

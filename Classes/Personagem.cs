@@ -12,6 +12,7 @@ public class Personagem{
   }
 
   public void InfoPersonagem(){
+    Console.WriteLine("");
     Console.WriteLine("Informações de {0} \n", this.Nome);
     Console.WriteLine("Nome: {0}", this.Nome);
     Console.WriteLine("Saldo: {0} moedas", this.Saldo);
@@ -32,24 +33,45 @@ public class Personagem{
     item.InfoItem();
   }
 
-  public void Comprar(Item item, Loja loja){
-    Console.WriteLine("Confirmar compra? \n [1] Sim \n [2] Não");
-    int confcompra = Convert.ToInt32(Console.ReadLine());
+  public void Comprar(Loja loja){
+    Console.WriteLine("Seja bem-vindo(a) a {0}", loja.Nome);
 
-    if(confcompra == 1){
-      if(this.Saldo >= item.Preco){
-        this.Saldo = this.Saldo - item.Preco;
-        this.Coletar(item);
-        loja.Catalogo.Remove(item);
-        Console.WriteLine("Compra concluída! \n");
+    int e = 0;
+
+    do{
+      Console.WriteLine("Aqui está nosso catálogo: \n");
+      loja.InfoCatalogo();
+
+      Console.Write("Escreva o nome do produto que você deseja exatamente como está no catálogo: ");
+      string i = Convert.ToString(Console.ReadLine());
+
+      foreach(Item item in loja.Catalogo){
+
+        if(i == item.Nome){
+          if(this.Saldo >= item.Preco){
+            Console.WriteLine("Confirmar compra? \n [1] Sim \n [2] Não");
+            int confcompra = Convert.ToInt32(Console.ReadLine());
+            
+            if(confcompra == 1){
+              this.Saldo = this.Saldo - item.Preco;
+              this.Coletar(item);
+              Console.WriteLine("Compra concluída! \n");
+            }
+            else
+              Console.WriteLine("Compra cancelada \n");
+          }
+          else
+            Console.WriteLine("Saldo insuficiente \n");
+        }
       }
-      else{
-        Console.WriteLine("Saldo insuficiente \n");
-      }
-    }
-    else{
-      Console.WriteLine("Compra cancelada \n");
-    }
+
+      Console.WriteLine("Mais alguma coisa? \n [1] Sim \n [2] Não");
+      e = Convert.ToInt32(Console.ReadLine());
+
+      if(e == 2)
+        Console.WriteLine("Até a próxima! Obrigado pela preferência!");
+
+    }while (e != 2);
   }
 
   public void RoubarDinheiro(Personagem inimigo){
