@@ -47,7 +47,7 @@ class MainClass {
     Console.WriteLine("   ||     ||  || ||..||     ||      .|''||   ||  .|''||  ||  ||   ||   ||  ||  ");
     Console.WriteLine("  .||.   .||  || `|...     .||      `|..||. .||. `|..||. `|..||. .||. .||  ||. ");
 
-    Console.WriteLine("A Game made by Marcos Gabriel");
+    Console.WriteLine("A game made by Marcos Gabriel (in development...)");
 
     Console.ReadKey();
     Console.Clear();
@@ -90,5 +90,7 @@ class MainClass {
     paladino.InfoPersonagem();
     paladino.Comprar(Dimitrescu);
     paladino.InfoPersonagem();
+
+    Console.WriteLine("A história de {0} continua... \nAguarde para mais informações sobre o desenvolvimento do jogo!", paladino.Nome);
   }
 }

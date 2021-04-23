@@ -18,7 +18,7 @@ public class Personagem{
     Console.WriteLine("Saldo: {0} moedas", this.Saldo);
     Console.WriteLine("Inventário: ");
     foreach(var item in Inventario){
-      Console.Write(item.Nome + " | ");
+      Console.Write("| {0} |", item.Nome);
     }
     Console.WriteLine("");
   }
@@ -37,6 +37,7 @@ public class Personagem{
     Console.WriteLine("Seja bem-vindo(a) a {0}", loja.Nome);
 
     int e = 0;
+    int l = 0;
 
     do{
       Console.WriteLine("Aqui está nosso catálogo: \n");
@@ -45,16 +46,22 @@ public class Personagem{
       Console.Write("Escreva o nome do produto que você deseja exatamente como está no catálogo: ");
       string i = Convert.ToString(Console.ReadLine());
 
+      Console.Write("Indique a quantidade: ");
+      int q = Convert.ToInt32(Console.ReadLine());
+
       foreach(Item item in loja.Catalogo){
 
         if(i == item.Nome){
-          if(this.Saldo >= item.Preco){
+          if(this.Saldo >= q * item.Preco){
             Console.WriteLine("Confirmar compra? \n [1] Sim \n [2] Não");
             int confcompra = Convert.ToInt32(Console.ReadLine());
             
             if(confcompra == 1){
-              this.Saldo = this.Saldo - item.Preco;
-              this.Inventario.Add(item);
+              this.Saldo = this.Saldo - q * item.Preco;
+              do{
+                this.Inventario.Add(item);
+                l++;
+              }while(l < q);
               //loja.Catalogo.Remove(item);
               Console.WriteLine("Compra concluída! \n");
             }
