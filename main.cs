@@ -32,7 +32,7 @@ class MainClass {
     Dimitrescu.AdicionarCat(ElixirDano);
     Dimitrescu.AdicionarCat(EspadaVibora);
     Dimitrescu.AdicionarCat(EspadaDragao);
-    Dimitrescu.AdicionarCat(ArcoHárpia);
+    Dimitrescu.AdicionarCat(ArcoHarpia);
     Dimitrescu.AdicionarCat(EspadaFerro);
     Dimitrescu.AdicionarCat(MachadoBehemoth);
     Dimitrescu.AdicionarCat(EscudoAngelical);
